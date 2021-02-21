@@ -5,15 +5,19 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "ts": "npm run tsc && node dist/script.js",
-        "js": "dist/script.js",
+        "build": "npm run tsc",
+        "ts": "npm run tsc && node dist/script.js ../example",
+        "js": "node dist/script.js",
         "tsc": "tsc"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "@types/node": "~8.9.4",
-        "typescript": "^4.1.5",
-        "eslint": "^7.19.0"
+        "@typescript-eslint/eslint-plugin": "^4.15.1",
+        "@typescript-eslint/parser": "^4.13.0",
+        "eslint": "^7.19.0",
+        "eslint-config-xo": "^0.34.0",
+        "typescript": "^4.1.5"
     }
 }
