@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "npm run tsc",
-        "ts": "npm run tsc && node dist/script.js ../example",
+        "ts": "npm run tsc && node dist/script.js ../sharing-ad",
         "js": "node dist/script.js",
         "tsc": "tsc"
     },

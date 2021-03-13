@@ -15,14 +15,14 @@ function get(obj, path, defaultValue?) {
     return result ?? defaultValue
 }
 
-const replace = (template: string, ctx: any) => {
+const replace = (template: string, ctx: any, fileName: string) => {
     const TEMPLATE_REGEXP = /{{(.*?)}}/gi
 
     let key = null
     while ((key = TEMPLATE_REGEXP.exec(template))) {
         if (key[1]) {
             const tmplValue = key[1].trim()
-            const data = get(ctx, tmplValue)
+            const data = get(ctx, fileName + '.' + tmplValue)
             template = template.replace(new RegExp(key[0], 'gi'), data)
         }
     }
@@ -53,7 +53,7 @@ for (let i = 0; i < files.length; i++) {
         const ctx = JSON.parse(json)
 
 
-        const result = replace(template, ctx)
+        const result = replace(template, ctx, file.slice(0, -5))
 
         const langPath = `${source}/dist/${lang.slice(0, -5)}`
         if (!fs.existsSync(langPath)) {
